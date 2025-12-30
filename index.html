@@ -1,50 +1,75 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>خدمات يومية جزائرية – أدوات مفيدة لكل يوم</title>
-
-  <meta name="description" content="موقع جزائري يقدم خدمات وأدوات يومية مفيدة: حسابات، تحويلات، معلومات، أدوات سريعة – بسيط وسريع ومناسب لجوجل أدسنس.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta name="robots" content="index, follow">
+  <title>يومية | حاسبة الراتب في الجزائر</title>
+  <meta name="description" content="حاسبة الراتب في الجزائر: احسب راتبك الصافي بعد الخصومات بسهولة. أداة مجانية مقدمة من موقع يومية.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    body{
-      margin:0;
-      font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#f4f6fb;
-      color:#111;
-      line-height:1.7;
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #222;
     }
-    header{
-      background:#1e40af;
-      color:#fff;
-      padding:30px 15px;
-      text-align:center;
+    header {
+      background: #1e40af;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
-    main{
-      max-width:900px;
-      margin:30px auto;
-      padding:0 15px;
+    main {
+      max-width: 700px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
     }
-    .card{
-      background:#fff;
-      border-radius:14px;
-      padding:20px;
-      margin-bottom:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    h1, h2 {
+      color: #1e40af;
     }
-    h2{margin-top:0;color:#1e40af}
-    footer{
-      text-align:center;
-      font-size:13px;
-      color:#555;
-      padding:20px;
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    .coming{
-      opacity:.7;
-      font-size:14px;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: #1e40af;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #16348c;
+    }
+    .result {
+      margin-top: 20px;
+      background: #eef2ff;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 15px;
+      font-size: 14px;
+      color: #555;
     }
   </style>
 </head>
@@ -52,41 +77,49 @@
 <body>
 
 <header>
-  <h1>🇩🇿 خدمات يومية جزائرية</h1>
-  <p>أدوات بسيطة ومفيدة تُستعمل يوميًا – بدون تعقيد</p>
+  <h1>🟦 يومية</h1>
+  <p>أدوات بسيطة تُستعمل يوميًا في الجزائر</p>
 </header>
 
 <main>
+  <h2>💼 حاسبة الراتب في الجزائر</h2>
+  <p>أدخل راتبك الخام (Brut) واحسب راتبك الصافي (Net) بعد الخصومات التقريبية.</p>
 
-  <div class="card">
-    <h2>🔢 حاسبات يومية</h2>
-    <p>حسابات سريعة تساعدك في حياتك اليومية.</p>
-    <p class="coming">قريبًا: حاسبة النسبة، حاسبة القروض، حاسبة الرواتب…</p>
-  </div>
+  <label>الراتب الخام (بالدينار الجزائري):</label>
+  <input type="number" id="brut" placeholder="مثال: 60000">
 
-  <div class="card">
-    <h2>💱 تحويلات</h2>
-    <p>تحويل العملات، الوحدات، الوقت…</p>
-    <p class="coming">قريبًا: تحويل الدينار، الدولار، اليورو…</p>
-  </div>
+  <button onclick="calculateSalary()">احسب الراتب الصافي</button>
 
-  <div class="card">
-    <h2>📅 أدوات يومية</h2>
-    <p>أدوات بسيطة تفيدك كل يوم.</p>
-    <p class="coming">قريبًا: حساب العمر، عداد الأيام، التقويم…</p>
-  </div>
+  <div class="result" id="result" style="display:none;"></div>
 
-  <div class="card">
-    <h2>ℹ️ معلومات سريعة</h2>
-    <p>معلومات مفيدة مختصرة.</p>
-    <p class="coming">قريبًا: أسعار، أرقام، نصائح…</p>
-  </div>
-
+  <h2>ℹ️ ملاحظات</h2>
+  <ul>
+    <li>الحساب تقريبي حسب الخصومات الشائعة.</li>
+    <li>قد يختلف الراتب حسب المنح والقطاع.</li>
+  </ul>
 </main>
 
 <footer>
-  © 2025 – موقع خدمات يومية جزائرية
+  © 2025 – موقع يومية | خدمات يومية جزائرية
 </footer>
+
+<script>
+function calculateSalary() {
+  var brut = document.getElementById("brut").value;
+  if (brut === "" || brut <= 0) {
+    alert("من فضلك أدخل راتب صحيح");
+    return;
+  }
+
+  var cnas = brut * 0.09;
+  var net = brut - cnas;
+
+  document.getElementById("result").style.display = "block";
+  document.getElementById("result").innerHTML =
+    "🔹 الراتب الصافي التقريبي: <strong>" + net.toFixed(0) + " دج</strong><br>" +
+    "🔸 خصم CNAS (9%): " + cnas.toFixed(0) + " دج";
+}
+</script>
 
 </body>
 </html>
