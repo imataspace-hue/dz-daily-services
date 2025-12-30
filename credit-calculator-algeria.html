@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>حاسبة القروض في الجزائر | حساب القرض البنكي الشهري</title>
+
+<meta name="description" content="احسب القرض البنكي في الجزائر بسهولة. حاسبة القروض تحسب القسط الشهري، مدة القرض، ونسبة الفائدة. مناسبة لجميع البنوك الجزائرية.">
+<meta name="keywords" content="حاسبة القروض الجزائر, حساب القرض البنكي, قرض سكني الجزائر, قرض سيارة الجزائر, calcul crédit Algérie">
+
+<link rel="canonical" href="https://www.yourwebsite.com/credit-calculator-algeria.html">
+
+<style>
+body{
+font-family:Arial, sans-serif;
+background:#f5f7fb;
+margin:0;
+padding:0;
+line-height:1.8;
+color:#111;
+}
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+h1,h2{
+color:#0f172a;
+}
+.box{
+background:#fff;
+padding:20px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+margin-bottom:25px;
+}
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+input{
+width:100%;
+padding:12px;
+margin-top:5px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+button{
+margin-top:20px;
+background:#2563eb;
+color:#fff;
+border:none;
+padding:14px;
+width:100%;
+font-size:18px;
+border-radius:30px;
+cursor:pointer;
+}
+button:hover{
+background:#1e40af;
+}
+.result{
+margin-top:20px;
+background:#ecfeff;
+padding:15px;
+border-radius:10px;
+font-size:18px;
+}
+small{
+color:#555;
+}
+footer{
+text-align:center;
+font-size:12px;
+color:#666;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>حاسبة القروض في الجزائر</h1>
+
+<div class="box">
+<p>
+تساعدك هذه الحاسبة على <strong>حساب القسط الشهري للقرض البنكي في الجزائر</strong>
+سواء كان قرض سكني، قرض سيارة أو قرض شخصي.
+</p>
+</div>
+
+<div class="box">
+
+<label>مبلغ القرض (بالدينار الجزائري)</label>
+<input type="number" id="amount" placeholder="مثال: 1000000">
+
+<label>نسبة الفائدة السنوية (%)</label>
+<input type="number" id="interest" placeholder="مثال: 6">
+
+<label>مدة القرض (بالسنوات)</label>
+<input type="number" id="years" placeholder="مثال: 5">
+
+<button onclick="calculate()">احسب القرض</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<div class="box">
+<h2>كيف يتم حساب القرض؟</h2>
+<p>
+يتم حساب القسط الشهري بناءً على:
+</p>
+<ul>
+<li>مبلغ القرض</li>
+<li>نسبة الفائدة</li>
+<li>مدة السداد</li>
+</ul>
+
+<p>
+هذه الطريقة مستخدمة في معظم البنوك الجزائرية مثل:
+BNA – BADR – CPA – CNEP
+</p>
+</div>
+
+<div class="box">
+<h2>أسئلة شائعة</h2>
+
+<p><strong>هل هذه الحاسبة دقيقة؟</strong><br>
+نعم، تعطيك تقديرًا قريبًا جدًا من الواقع.</p>
+
+<p><strong>هل تشمل جميع البنوك؟</strong><br>
+نعم، يمكن استخدامها مع أي بنك جزائري.</p>
+</div>
+
+<footer>
+© 2025 – خدمات يومية للجزائريين | حاسبة القروض  
+</footer>
+
+</div>
+
+<script>
+function calculate(){
+let amount = document.getElementById("amount").value;
+let interest = document.getElementById("interest").value / 100 / 12;
+let years = document.getElementById("years").value * 12;
+
+if(amount=="" || interest=="" || years==""){
+document.getElementById("result").innerHTML="يرجى ملء جميع الحقول";
+return;
+}
+
+let monthly = (amount * interest) / (1 - Math.pow(1 + interest, -years));
+monthly = monthly.toFixed(2);
+
+document.getElementById("result").innerHTML =
+"القسط الشهري التقريبي هو: <strong>" + monthly + " دج</strong>";
+}
+</script>
+
+</body>
+</html>
